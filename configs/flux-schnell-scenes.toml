@@ -1,0 +1,34 @@
+# FLUX.1-schnell scenes: the first 150 of the same COCO captions as zimage-turbo-scenes, so the two generators can
+# be compared scene for scene.
+name = "flux-schnell-scenes"
+set = "flux-scenes"
+backend = "diffusers"
+model = "black-forest-labs/FLUX.1-schnell"
+steps = 4
+guidance = 0.0
+sizes = [[1024, 1024]]
+
+[seeds]
+start = 100000
+per_prompt = 1
+
+[prompts]
+kind = "captions"
+file = "../data/coco/captions_val2017.json"
+n = 150
+seed = 0
+# no real people, brands or named organisations (project rule); both scene configs share this list, so they
+# still share their first 150 captions
+exclude = [
+  "colbert", "mccartney",                                                     # real, named people
+  "volvo", "yamaha", "dodge", "wii", "nintendo", "frisbee", "frisbees", "nokia", "blackberry", "iphone",
+  "apple computer", "hp", "adidas", "pepsi", "styrofoam", "bae systems",      # brands and products
+  "lenox", "metropolitan",                                                    # named organisations
+  "disney", "donald duck", "minney mouse", "minnie mouse", "mickey mouse",    # characters
+  "dog into an oven", "potty",                                                # not appropriate to generate
+]
+
+[options]
+dtype = "auto"
+offload = "none"
+call_kwargs = { max_sequence_length = 256 }

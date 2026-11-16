@@ -1,0 +1,26 @@
+# 2026-11-01 overnight: black only, at four resolutions, to test whether the spectral grid keeps a fixed
+# period in pixels (8/16 px) or a fixed fraction of the frame. Every seed is drawn at all four sizes, so
+# sizes stay paired and evenly filled whenever the time budget stops the run.
+#   scripts/overnight.sh configs/zimage-turbo-flat-black-sizes.toml --hours 8.6
+name = "zimage-turbo-flat-black-sizes"
+set = "flat-black-sizes"
+backend = "diffusers"
+model = "Tongyi-MAI/Z-Image-Turbo"
+steps = 9
+guidance = 0.0
+sizes = [[512, 512], [768, 768], [1024, 1024], [1280, 1280]]
+
+[seeds]
+random = true
+pick_seed = 20261101
+per_prompt = 2000        # the time budget is the real limit
+
+[prompts]
+kind = "flat"
+colours = [
+  { name = "black", rgb = [0, 0, 0] },
+]
+
+[options]
+dtype = "auto"
+offload = "none"

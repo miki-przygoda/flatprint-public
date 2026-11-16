@@ -1,0 +1,22 @@
+# FLUX.1-schnell, the same black prompt as the Z-Image black sets, at 1024² and 768². Z-Image ships FLUX.1-dev's
+# VAE unchanged, so this asks whether the 16-px fingerprint belongs to Z-Image or to the FLUX-VAE family.
+name = "flux-schnell-black"
+set = "flux-black"
+backend = "diffusers"
+model = "black-forest-labs/FLUX.1-schnell"
+steps = 4
+guidance = 0.0
+sizes = [[1024, 1024], [768, 768]]
+
+[seeds]
+start = 20261108
+per_prompt = 40
+
+[prompts]
+kind = "flat"
+colours = [{ name = "black", rgb = [0, 0, 0] }]
+
+[options]
+dtype = "auto"
+offload = "none"
+call_kwargs = { max_sequence_length = 256 }

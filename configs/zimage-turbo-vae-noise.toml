@@ -1,0 +1,24 @@
+# Decoder-only control with texture: flat colours plus seeded Gaussian pixel noise (std 2.4, as the synthetic
+# control and the clean 1024² Z-Image blacks), encoded and decoded by Z-Image-Turbo's VAE alone (no diffusion).
+# Does the decoder by itself put the 16-px tile into a noisy dark image?
+name = "zimage-turbo-vae-noise"
+set = "vae-noise"
+backend = "vae-roundtrip"
+model = "Tongyi-MAI/Z-Image-Turbo"
+sizes = [[1024, 1024]]
+
+[seeds]
+start = 0
+per_prompt = 16
+
+[prompts]
+kind = "flat"
+colours = [
+  { name = "near black", rgb = [8, 8, 8] },
+  { name = "dark grey",  rgb = [64, 64, 64] },
+  { name = "mid grey",   rgb = [128, 128, 128] },
+]
+
+[options]
+dtype = "auto"
+noise_std = 2.4

@@ -1,0 +1,28 @@
+# 2026-10-23: 5 exact-RGB flat colours x 5 random seeds at 1024x1024 = 25 images (~20 min on the M3 Max).
+# Each prompt asks for an exact RGB/hex value; the model isn't bound to it, so measure the real pixels.
+name = "zimage-turbo-flat-rgb"
+set = "flat-rgb"
+backend = "diffusers"
+model = "Tongyi-MAI/Z-Image-Turbo"
+steps = 9
+guidance = 0.0
+sizes = [[1024, 1024]]
+
+[seeds]
+random = true
+pick_seed = 20261023     # fixes the draw; the actual seeds are in each record
+per_prompt = 5
+
+[prompts]
+kind = "flat"
+colours = [
+  { name = "black",      rgb = [0, 0, 0] },
+  { name = "dark grey",  rgb = [64, 64, 64] },
+  { name = "mid grey",   rgb = [128, 128, 128] },
+  { name = "light grey", rgb = [192, 192, 192] },
+  { name = "white",      rgb = [255, 255, 255] },
+]
+
+[options]
+dtype = "auto"
+offload = "none"

@@ -1,0 +1,35 @@
+# baselines on an RTX 3090 Ti (CUDA), 2026-11-13 00:57, code baselines-9bc2f36
+AUC vs ['web-black-pinterest', 'real-social', 'real-social-hard'] (n = [9, 8, 19])
+set                                     corvi        aeroblade  aeroblade-zflux    aeroblade-sd1    aeroblade-sd2   aeroblade-kd21
+flux-black                              0.840            0.855            0.853            0.828            0.850            0.860   (n=80)
+flux-scenes                             0.854            0.733            0.780            0.733            0.732            0.734   (n=150)
+phone-blank                             0.844            0.841            0.846            0.850            0.843            0.850   (n=15)  [real]
+real-phone                              0.362            0.562            0.611            0.562            0.551            0.576   (n=20)  [real]
+real-phone-dim                          0.495            0.536            0.646            0.526            0.505            0.552   (n=16)  [real]
+real-phone-dim-w564-q85                 0.399            0.592            0.564            0.611            0.590            0.601   (n=16)  [real]
+real-phone-dim-w736-q85                 0.453            0.583            0.582            0.602            0.578            0.601   (n=16)  [real]
+real-phone-w564-q85                     0.225            0.493            0.440            0.496            0.492            0.500   (n=20)  [real]
+real-phone-w736-q85                     0.246            0.500            0.478            0.503            0.499            0.510   (n=20)  [real]
+showcase                                0.734            0.502            0.756            0.518            0.492            0.525   (n=32)
+showcase-q85                            0.721            0.487            0.618            0.502            0.482            0.503   (n=32)
+showcase-w564-q85                       0.470            0.599            0.595            0.602            0.599            0.588   (n=32)
+showcase-w736                           0.319            0.582            0.349            0.587            0.569            0.599   (n=32)
+showcase-w736-q85                       0.535            0.565            0.585            0.577            0.565            0.573   (n=32)
+z-scenes                                0.725            0.683            0.769            0.689            0.677            0.692   (n=300)
+z-scenes-w564-q85                       0.503            0.663            0.653            0.666            0.662            0.669   (n=300)
+z-scenes-w736                           0.417            0.677            0.539            0.682            0.669            0.688   (n=300)
+z-scenes-w736-q85                       0.578            0.675            0.669            0.681            0.675            0.681   (n=300)
+
+AUC vs ['web-black-pinterest', 'real-social', 'real-social-hard', 'phone-blank', 'real-phone', 'real-phone-dim', 'real-phone-w736-q85', 'real-phone-w564-q85', 'real-phone-dim-w736-q85', 'real-phone-dim-w564-q85'] (n = [9, 8, 19, 15, 20, 16, 20, 20, 16, 16])
+set                                     corvi        aeroblade  aeroblade-zflux    aeroblade-sd1    aeroblade-sd2   aeroblade-kd21
+flux-black                              0.904            0.920            0.897            0.897            0.919            0.922   (n=80)
+flux-scenes                             0.901            0.757            0.795            0.752            0.756            0.758   (n=150)
+showcase                                0.818            0.419            0.742            0.426            0.411            0.428   (n=32)
+showcase-q85                            0.819            0.406            0.533            0.419            0.409            0.410   (n=32)
+showcase-w564-q85                       0.539            0.526            0.495            0.529            0.531            0.510   (n=32)
+showcase-w736                           0.388            0.502            0.244            0.508            0.491            0.512   (n=32)
+showcase-w736-q85                       0.626            0.488            0.485            0.503            0.494            0.489   (n=32)
+z-scenes                                0.801            0.640            0.770            0.643            0.636            0.645   (n=300)
+z-scenes-w564-q85                       0.579            0.611            0.581            0.606            0.616            0.608   (n=300)
+z-scenes-w736                           0.492            0.632            0.427            0.630            0.624            0.638   (n=300)
+z-scenes-w736-q85                       0.665            0.628            0.606            0.626            0.633            0.625   (n=300)

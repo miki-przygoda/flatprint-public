@@ -1,0 +1,37 @@
+# 2026-10-23 overnight: 12 exact-RGB flat colours (5 greys + 7 mid-range hues, kept off 0/255 per channel
+# where possible so nothing clips) x random seeds at 1024x1024. Run with a time budget, e.g.
+#   scripts/overnight.sh configs/zimage-turbo-flat-rgb-overnight.toml --hours 8
+# Jobs rotate through the colours, so any stopping point leaves near-equal counts per colour.
+name = "zimage-turbo-flat-rgb-overnight"
+set = "flat-rgb"
+backend = "diffusers"
+model = "Tongyi-MAI/Z-Image-Turbo"
+steps = 9
+guidance = 0.0
+sizes = [[1024, 1024]]
+
+[seeds]
+random = true
+pick_seed = 20261024
+per_prompt = 2000        # far more than 8 h needs; the time budget is the real limit
+
+[prompts]
+kind = "flat"
+colours = [
+  { name = "black",      rgb = [0, 0, 0] },
+  { name = "dark grey",  rgb = [64, 64, 64] },
+  { name = "mid grey",   rgb = [128, 128, 128] },
+  { name = "light grey", rgb = [192, 192, 192] },
+  { name = "white",      rgb = [255, 255, 255] },
+  { name = "red",        rgb = [200, 40, 40] },
+  { name = "green",      rgb = [40, 160, 60] },
+  { name = "blue",       rgb = [40, 70, 200] },
+  { name = "yellow",     rgb = [230, 210, 50] },
+  { name = "cyan",       rgb = [40, 180, 190] },
+  { name = "magenta",    rgb = [190, 50, 170] },
+  { name = "orange",     rgb = [240, 140, 30] },
+]
+
+[options]
+dtype = "auto"
+offload = "none"

@@ -1,0 +1,12 @@
+group,n,rule G flagged,rule G AUC,rule E flagged,rule E AUC
+Z black (all clean),502,0.000,0.486,1.000,0.806
+Z scenes (showcase),34,0.000,0.486,1.000,0.806
+Z scenes (COCO),300,0.000,0.486,1.000,0.806
+Scenes, JPEG 85,32,0.000,0.486,1.000,0.806
+Scenes, 736 w,32,0.000,0.486,1.000,0.806
+Scenes, 736 w + JPEG 85,32,0.000,0.486,1.000,0.806
+Scenes, 564 w + JPEG 85,32,0.000,0.486,1.000,0.806
+FLUX black,80,0.000,0.486,1.000,0.806
+FLUX scenes,150,0.000,0.486,1.000,0.806
+[real] phone originals,51,0.098,0.535,0.000,0.306
+[real] phone, resized copies,72,0.000,0.486,1.000,0.806

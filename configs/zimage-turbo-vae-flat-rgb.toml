@@ -1,0 +1,31 @@
+# Decoder-only reference: the same 12 exact-RGB colours as the flat-rgb set, encoded and decoded by
+# Z-Image-Turbo's VAE alone (no diffusion). The round trip uses the latent mode, so one image per colour.
+name = "zimage-turbo-vae-flat-rgb"
+set = "vae-flat-rgb"
+backend = "vae-roundtrip"
+model = "Tongyi-MAI/Z-Image-Turbo"
+sizes = [[1024, 1024]]
+
+[seeds]
+start = 0
+per_prompt = 1
+
+[prompts]
+kind = "flat"
+colours = [
+  { name = "black",      rgb = [0, 0, 0] },
+  { name = "dark grey",  rgb = [64, 64, 64] },
+  { name = "mid grey",   rgb = [128, 128, 128] },
+  { name = "light grey", rgb = [192, 192, 192] },
+  { name = "white",      rgb = [255, 255, 255] },
+  { name = "red",        rgb = [200, 40, 40] },
+  { name = "green",      rgb = [40, 160, 60] },
+  { name = "blue",       rgb = [40, 70, 200] },
+  { name = "yellow",     rgb = [230, 210, 50] },
+  { name = "cyan",       rgb = [40, 180, 190] },
+  { name = "magenta",    rgb = [190, 50, 170] },
+  { name = "orange",     rgb = [240, 140, 30] },
+]
+
+[options]
+dtype = "auto"

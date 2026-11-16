@@ -1,0 +1,19 @@
+# Decoder-only control from latents: seeded unit-Gaussian latents (the diffusion model's starting noise, in its
+# scaled latent space) decoded by Z-Image-Turbo's VAE alone: no encoder, no transformer. The prompt is unused.
+name = "zimage-turbo-vae-latent"
+set = "vae-random-latent"
+backend = "vae-roundtrip"
+model = "Tongyi-MAI/Z-Image-Turbo"
+sizes = [[1024, 1024]]
+
+[seeds]
+start = 0
+per_prompt = 32
+
+[prompts]
+kind = "flat"
+colours = ["black"]
+
+[options]
+dtype = "auto"
+latent = "random"

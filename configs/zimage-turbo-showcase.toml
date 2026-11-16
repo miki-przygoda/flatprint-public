@@ -1,0 +1,25 @@
+# Showcase set (2026-10-22): hand-written realistic prompts for report figures and demos.
+# 4 seeds per prompt so the best can be picked, and the pick reported honestly.
+# Same model, steps and precision as the main sets, so the fingerprint is the same generator's.
+# Not for evaluation (the picks are hand-chosen); evaluate on the unselected content set.
+name = "zimage-turbo-showcase"
+set = "showcase"
+backend = "diffusers"
+model = "Tongyi-MAI/Z-Image-Turbo"
+steps = 9
+guidance = 0.0
+sizes = [[1216, 832]]    # 3:2 landscape like a camera; square frames are themselves a tell
+
+[seeds]
+start = 500000
+per_prompt = 4           # 8 prompts x 4 seeds = 32 images (~20 min)
+
+[prompts]
+kind = "captions"
+file = "prompts/showcase.txt"
+n = 8
+seed = 0
+
+[options]
+dtype = "auto"
+offload = "none"

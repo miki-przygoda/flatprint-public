@@ -1,0 +1,25 @@
+# Decoder-only control: each flat colour is encoded once (no noise), then its latent plus seeded Gaussian noise
+# (std 0.3 in the scaled latent space; the latent-noise sweep run on a Linux CPU host in float32, beside n01 and n06; zimage-turbo-vae-flat-latent is the same level made on the Mac in bfloat16) is decoded by
+# Z-Image-Turbo's VAE alone. The encoder never sees a noisy image, so any 16-px tile comes from the decoder.
+name = "zimage-turbo-vae-flat-latent-n03"
+set = "vae-flat-latent-n03"
+backend = "vae-roundtrip"
+model = "Tongyi-MAI/Z-Image-Turbo"
+sizes = [[1024, 1024]]
+
+[seeds]
+start = 0
+per_prompt = 16
+
+[prompts]
+kind = "flat"
+colours = [
+  { name = "near black", rgb = [8, 8, 8] },
+  { name = "dark grey",  rgb = [64, 64, 64] },
+  { name = "mid grey",   rgb = [128, 128, 128] },
+]
+
+[options]
+dtype = "auto"
+latent = "flat+noise"
+latent_noise = 0.3

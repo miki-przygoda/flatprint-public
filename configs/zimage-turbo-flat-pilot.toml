@@ -1,0 +1,21 @@
+# Pilot (2026-10-22): 12 flat images to measure speed and see whether Z-Image's "blank" is actually flat.
+# Separate set so it never mixes with the main flat set.
+name = "zimage-turbo-flat-pilot"
+set = "flat-pilot"
+backend = "diffusers"
+model = "Tongyi-MAI/Z-Image-Turbo"
+steps = 9
+guidance = 0.0
+sizes = [[1024, 1024], [768, 768]]
+
+[seeds]
+start = 0
+per_prompt = 2           # 3 colours x 2 seeds x 2 sizes = 12 images
+
+[prompts]
+kind = "flat"
+colours = ["black", "white", "grey"]
+
+[options]
+dtype = "auto"
+offload = "none"
