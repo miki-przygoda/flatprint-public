@@ -109,6 +109,7 @@ Steps that need the social-media negatives (not public), so they only run on the
 ```bash
 uv run python experiments/scale_scan.py logs/results/SCAN.json      # score + scale scan of every test image (slow)
 uv run python experiments/metadata_baseline.py                      # metadata rules G (generator tag) and E (no EXIF)
+uv run python experiments/sigma_sweep.py                            # residual sigma 1-8: strength / score AUC per group
 uv run marimo edit experiments/results.py                           # browse the scored images
 ```
 
@@ -130,6 +131,7 @@ uv run python experiments/baselines.py --report logs/results/baselines.csv
 | `…-combined.json`, `…-combined-nosharp.json` | the combined logistic model's out-of-fold P(Z-Image), with and without sharpness |
 | `baselines.csv`, `baselines-report.txt` | Corvi 2023 and AEROBLADE scores and AUCs |
 | `metadata-baseline.csv` | metadata rules G and E |
+| `sigma-sweep.csv` | strength and score AUC for residual sigma 1, 2, 3, 5, 8 (sigma 3 = the report's setting) |
 
 ### Notebooks (`experiments/`, marimo)
 
